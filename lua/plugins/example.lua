@@ -1,6 +1,47 @@
 -- since this is just an example spec, don't actually load anything here and return an empty spec
 -- stylua: ignore
-if true then return {} end
+if true then return {
+  { "ellisonleao/gruvbox.nvim" },
+  {"olimorris/onedarkpro.nvim"},
+   {
+     "LazyVim/LazyVim",
+     opts = {
+       colorscheme = "onedark",
+     },
+   },
+  -- Disable lualine in favor of mini.statusline
+  { "nvim-lualine/lualine.nvim", enabled = false },
+
+  -- Boxy statusline like kickstart.nvim using mini.statusline
+  { 'nvim-mini/mini.nvim', version = '*' },
+  -- {
+  --   "echasnovski/mini.nvim",
+  --   version = false,
+  --   event = "VeryLazy",
+  --   config = function()
+  --     -- Setup mini.statusline
+  --     local statusline = require("mini.statusline")
+  --     local use_icons = vim.g.have_nerd_font
+  --     if use_icons == nil then
+  --       -- Assume nerd font is installed
+  --       use_icons = true
+  --     end
+  --     statusline.setup({
+  --       use_icons = use_icons,
+  --       -- Customize sections if needed
+  --     })
+  --     -- Customize location format like kickstart.nvim
+  --     statusline.section_location = function()
+  --       return "%2l:%-2v"
+  --     end
+  --   end,
+  -- },
+
+  -- use mini.starter instead of alpha
+  -- { import = "lazyvim.plugins.extras.ui.mini-starter" },
+
+
+} end
 
 -- every spec file under the "plugins" directory will be loaded automatically by lazy.nvim
 --
@@ -10,15 +51,8 @@ if true then return {} end
 -- * override the configuration of LazyVim plugins
 return {
   -- add gruvbox
-  { "ellisonleao/gruvbox.nvim" },
 
   -- Configure LazyVim to load gruvbox
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "gruvbox",
-    },
-  },
 
   -- change trouble config
   {
@@ -151,33 +185,6 @@ return {
       })
     end,
   },
-
-  -- the opts function can also be used to change the default opts:
-  {
-    "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
-    opts = function(_, opts)
-      table.insert(opts.sections.lualine_x, {
-        function()
-          return "😄"
-        end,
-      })
-    end,
-  },
-
-  -- or you can return new options to override all the defaults
-  {
-    "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
-    opts = function()
-      return {
-        --[[add your custom lualine config here]]
-      }
-    end,
-  },
-
-  -- use mini.starter instead of alpha
-  { import = "lazyvim.plugins.extras.ui.mini-starter" },
 
   -- add jsonls and schemastore packages, and setup treesitter for json, json5 and jsonc
   { import = "lazyvim.plugins.extras.lang.json" },
