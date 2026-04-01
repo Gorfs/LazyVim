@@ -1,5 +1,5 @@
--- Disable noice.nvim because of recurring Treesitter cmdline query errors.
--- This keeps Neovim's native command line visible and reliable.
+-- Local noice override: keep it disabled due to recurring cmdline
+-- Treesitter query errors, and use Neovim's native command line instead.
 return {
   {
     "folke/noice.nvim",
