@@ -13,29 +13,27 @@ if true then return {
   { "nvim-lualine/lualine.nvim", enabled = false },
 
   -- Boxy statusline like kickstart.nvim using mini.statusline
-  { 'nvim-mini/mini.nvim', version = '*' },
-  -- {
-  --   "echasnovski/mini.nvim",
-  --   version = false,
-  --   event = "VeryLazy",
-  --   config = function()
-  --     -- Setup mini.statusline
-  --     local statusline = require("mini.statusline")
-  --     local use_icons = vim.g.have_nerd_font
-  --     if use_icons == nil then
-  --       -- Assume nerd font is installed
-  --       use_icons = true
-  --     end
-  --     statusline.setup({
-  --       use_icons = use_icons,
-  --       -- Customize sections if needed
-  --     })
-  --     -- Customize location format like kickstart.nvim
-  --     statusline.section_location = function()
-  --       return "%2l:%-2v"
-  --     end
-  --   end,
-  -- },
+  {
+    "echasnovski/mini.nvim",
+    version = false,
+    event = "VeryLazy",
+    config = function()
+      -- Setup mini.statusline
+      local statusline = require("mini.statusline")
+      local use_icons = vim.g.have_nerd_font
+      if use_icons == nil then
+        -- Assume nerd font is installed
+        use_icons = true
+      end
+      statusline.setup({
+        use_icons = use_icons,
+      })
+      -- Customize location format like kickstart.nvim
+      statusline.section_location = function()
+        return "%2l:%-2v"
+      end
+    end,
+  },
 
   -- use mini.starter instead of alpha
   -- { import = "lazyvim.plugins.extras.ui.mini-starter" },
