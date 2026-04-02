@@ -5,7 +5,8 @@
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 vim.opt.swapfile = false
--- Keep one cmdline row visible for the native Neovim command line input.
-vim.opt.cmdheight = 1
+-- Hide the command line when not in use; it appears only while typing a command.
+-- Requires Neovim >= 0.8. Works with the native cmdline since noice.nvim is disabled.
+vim.opt.cmdheight = 0
 -- Use the faster TypeScript LSP backend for snappier editing in large TS projects.
 vim.g.lazyvim_ts_lsp = "tsgo"
