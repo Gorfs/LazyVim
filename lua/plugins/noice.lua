@@ -1,20 +1,8 @@
--- Configure noice.nvim to fix treesitter "tab" node type error and move
--- the command line back to the bottom left (native cmdline position).
+-- Local noice override: keep it disabled due to recurring cmdline
+-- Treesitter query errors, and use Neovim's native command line instead.
 return {
   {
     "folke/noice.nvim",
-    opts = {
-      -- Use the native Neovim cmdline at the bottom left instead of the
-      -- floating popup at the centre of the screen. This also avoids the
-      -- treesitter query error caused by the invalid "tab" node type that
-      -- noice's popup uses for syntax highlighting.
-      cmdline = {
-        view = "cmdline",
-      },
-      presets = {
-        bottom_search = true, -- classic bottom cmdline for /search
-        command_palette = false, -- do not merge cmdline + popup in the centre
-      },
-    },
+    enabled = false,
   },
 }
